@@ -73,5 +73,9 @@ Benchmark tối thiểu:
 
 Mỗi nhóm trả lời 2 câu:
 
-1. Case nào nên dùng multi-agent? Vì sao?
-2. Case nào không nên dùng multi-agent? Vì sao?
+1. **Case nào nên dùng multi-agent? Vì sao?**
+   - **Trả lời**: Nên dùng multi-agent cho các tác vụ nghiên cứu chuyên sâu, phức tạp, đòi hỏi sự phối hợp của nhiều kỹ năng chuyên biệt (như thu thập dữ liệu thô, đối chiếu mâu thuẫn lập luận, kiểm chứng thực tế và định hình văn phong theo đối tượng độc giả). Phân chia vai trò giúp nâng cao độ chính xác của trích dẫn (như đã thấy trong benchmark, tỷ lệ trích dẫn đạt 5/5 nguồn so với 0/0 ở single-agent) và cải thiện chất lượng tổng thể nhờ có khâu phản biện (Analyst/Critic).
+
+2. **Case nào không nên dùng multi-agent? Vì sao?**
+   - **Trả lời**: Không nên dùng multi-agent cho các truy vấn đơn giản, các tác vụ yêu cầu phản hồi thời gian thực (real-time/low latency) hoặc ngân sách chi phí hạn chế. Chạy hệ thống multi-agent làm tăng thời gian xử lý (latency tăng từ ~10s lên ~83s) và chi phí token (cost tăng gấp 8-10 lần) do luồng xử lý qua nhiều bước định tuyến trung gian và liên tục truyền chuyển shared state giữa các agent.
+

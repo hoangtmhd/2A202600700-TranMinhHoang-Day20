@@ -1,12 +1,10 @@
-import pytest
-
 from multi_agent_research_lab.agents import SupervisorAgent
-from multi_agent_research_lab.core.errors import StudentTodoError
 from multi_agent_research_lab.core.schemas import ResearchQuery
 from multi_agent_research_lab.core.state import ResearchState
 
 
-def test_supervisor_is_student_todo() -> None:
+def test_supervisor_routes_correctly() -> None:
     state = ResearchState(request=ResearchQuery(query="Explain multi-agent systems"))
-    with pytest.raises(StudentTodoError):
-        SupervisorAgent().run(state)
+    updated_state = SupervisorAgent().run(state)
+    assert len(updated_state.route_history) > 0
+    assert updated_state.route_history[-1] == "researcher"
